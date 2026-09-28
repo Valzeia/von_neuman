@@ -1,0 +1,60 @@
+// Unity C# development container with Git, the VS Code server, and PostgreSQL.
+// The Unity Editor itself stays on the host (it needs a GPU and a display).
+// Open this folder in VS Code and run "Dev Containers: Reopen in Container".
+{
+	"name": "von_neuman (Unity + PostgreSQL)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/von_neuman",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": true
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/dotnet:2": {
+			"version": "8.0"
+		}
+	},
+	"forwardPorts": [5432],
+	"portsAttributes": {
+		"5432": {
+			"label": "PostgreSQL",
+			"onAutoForward": "silent"
+		}
+	},
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.csharp",
+				"visualstudiotoolsforunity.vstuc",
+				"ms-azuretools.vscode-docker",
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-pg"
+			],
+			"settings": {
+				"dotnet.defaultSolution": "disable",
+				"omnisharp.useModernNet": true,
+				"files.exclude": {
+					"**/.git": true,
+					"**/.DS_Store": true,
+					"**/*.meta": false
+				},
+				"sqltools.connections": [
+					{
+						"name": "von_neuman",
+						"driver": "PostgreSQL",
+						"server": "localhost",
+						"port": 5432,
+						"database": "von_neuman",
+						"username": "postgres",
+						"password": "postgres"
+					}
+				]
+			}
+		}
+	},
+	"remoteUser": "vscode"
+}
