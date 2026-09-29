@@ -3,6 +3,13 @@ set -euo pipefail
 
 git config --global core.pager cat
 
+echo "Git configuration"
+read -p "Git username: " GIT_USERNAME
+read -p "Git email: " GIT_EMAIL
+
+git config --global user.name "$GIT_USERNAME"
+git config --global user.email "$GIT_EMAIL"
+
 echo "git:        $(git --version)"
 echo "dotnet:     $(dotnet --version)"
 echo "psql:       $(psql --version)"
