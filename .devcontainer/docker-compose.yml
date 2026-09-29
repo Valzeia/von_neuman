@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mount the repo (parent of .devcontainer). Must match workspaceFolder in devcontainer.json.
+      - ..:/workspaces/von_neuman:cached
+    # Share the database network so Postgres is reachable at localhost:5432.
+    network_mode: service:db
+    command: sleep infinity
+
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: von_neuman
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d von_neuman"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres-data:
