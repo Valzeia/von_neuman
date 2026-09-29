@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+git config --global core.pager cat
+
 echo "git:        $(git --version)"
 echo "dotnet:     $(dotnet --version)"
 echo "psql:       $(psql --version)"
