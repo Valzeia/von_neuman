@@ -104,3 +104,50 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# ============================================================
+# Unity project: Von Neuman/
+# ============================================================
+
+# Unity generated/cache folders
+Von Neuman/[Ll]ibrary/
+Von Neuman/[Tt]emp/
+Von Neuman/[Oo]bj/
+Von Neuman/[Bb]uild/
+Von Neuman/[Bb]uilds/
+Von Neuman/[Ll]ogs/
+Von Neuman/[Uu]ser[Ss]ettings/
+
+# Memory captures
+Von Neuman/[Mm]emoryCaptures/
+
+# Asset import artifacts
+Von Neuman/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# ============================================================
+# IDE / Editor generated files
+# ============================================================
+
+# Visual Studio
+.vs/
+Von Neuman/*.csproj
+Von Neuman/*.sln
+Von Neuman/*.suo
+Von Neuman/*.user
+Von Neuman/*.userprefs
+
+# JetBrains Rider
+Von Neuman/[Rr]ider/[Ee]ditor[Ii]ndexes/
+
+# ============================================================
+# OS generated files
+# ============================================================
+
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Crash reports
+# ============================================================
+
+sysinfo.txt
